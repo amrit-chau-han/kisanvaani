@@ -18,8 +18,6 @@ graph TD
     UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
     STT --> Param[Translate query from regional language to English]:::ai
     Param --> TransEN[Extract Parameters]:::ai
-    %% Layout fix: Hidden link to push Config to the left of Farmer
-    Config ~~~ Farmer
 
     %% Data Layer
     AgMark[AgMarkNet API]:::data --> Fetch[Fetch Data]:::data
