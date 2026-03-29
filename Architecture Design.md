@@ -17,24 +17,24 @@ graph TD
     %% Main Flow
     Farmer((Farmer Voice Query)):::io --> UI[Cell 11: StreamLit UI]:::io
     UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
-    STT --> Param[Parameter Extraction]:::ai
-    Param --> TransEN[Translate to EN]:::ai
+    STT --> Param[Translate query from regional language to English]:::ai
+    Param --> TransEN[Extract Parameters]:::ai
     
     %% Data Layer
-    AgMark[AgMarkNet API]:::data --> Fetch[Cell 5: Fetch Data]:::data
+    AgMark[AgMarkNet API]:::data --> Fetch[Fetch Data]:::data
     Weather[OpenWeatherMap]:::data --> Fetch
     Tables[(Delta Lake Tables)]:::data --> Fetch
     
     TransEN --> Context[Cell 6: Context Assembly]:::data
     Fetch --> Context
     
-    Context --> Gen[Cell 7: Answer Generation]:::gen
-    Gen --> TransNative[Cell 8: Translate to Native]:::util
+    Context --> Gen[Answer Generation]:::gen
+    Gen --> TransNative[Translate to Native]:::util
     
     TransNative --> Card[Answer Card]:::io
-    TransNative --> TTS[Cell 9: TTS Audio]:::io
+    TransNative --> TTS[TTS Audio]:::io
     
-    Card -.-> Log[Cell 2: Delta Query Log]:::io
+    Card -.-> Log[Delta Query Log]:::io
     TTS -.-> Log
     
     %% Assigning groups
