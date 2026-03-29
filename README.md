@@ -54,7 +54,7 @@ graph TD
         TransEN
     end
 
-## 🚀 How to Run
+## How to Run
 
 To launch the **KisanVaani v2** assistant within your Databricks workspace, follow these steps:
 
@@ -66,7 +66,7 @@ To launch the **KisanVaani v2** assistant within your Databricks workspace, foll
 
 ---
 
-## 🖱️ Demo Steps (How to Use)
+##  Demo Steps (How to Use)
 
 Once the application interface is open, follow these steps to interact with the assistant:
 
@@ -85,7 +85,7 @@ Once the application interface is open, follow these steps to interact with the 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 * **Platform:** Databricks Lakehouse
 * **Models:** Sarvam Saarika (STT), Sarvam Maurya (Translation), Llama 3 70B (LLM)
 * **UI:** Streamlit
