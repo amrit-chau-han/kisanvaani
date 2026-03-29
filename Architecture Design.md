@@ -15,10 +15,10 @@ graph TD
     Config[Cell 1: Config]:::util
 
     %% Main Flow
-    Farmer((Farmer Voice Query)):::io --> UI[Cell 11: Gradio UI]:::io
-    UI --> STT[Sarvam Sarika Model]:::ai
-    STT --> Param[Cell 4: Parameter Extraction]:::ai
-    Param --> TransEN[Cell 8: Translate to EN]:::ai
+    Farmer((Farmer Voice Query)):::io --> UI[Cell 11: StreamLit UI]:::io
+    UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
+    STT --> Param[Parameter Extraction]:::ai
+    Param --> TransEN[Translate to EN]:::ai
     
     %% Data Layer
     AgMark[AgMarkNet API]:::data --> Fetch[Cell 5: Fetch Data]:::data
