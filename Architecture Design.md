@@ -42,5 +42,9 @@ Mayura --> LlamaParam[Llama: Parameters]:::ai
     %% Directing the flow for a more "Square" aspect ratio
     TTS -.-> User
 
-   
+    %% Assigning groups
+    subgraph AI_Layer [AI / Indian Models]
+        STT
+        Param
+        TransEN
     end
