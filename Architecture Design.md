@@ -16,7 +16,7 @@ graph TD
 
     %% Main Flow
     Farmer((Farmer Voice Query)):::io --> UI[Cell 11: Gradio UI]:::io
-    UI --> STT[Cell 3: Whisper STT]:::ai
+    UI --> STT[Sarvam Sarika Model]:::ai
     STT --> Param[Cell 4: Parameter Extraction]:::ai
     Param --> TransEN[Cell 8: Translate to EN]:::ai
     
