@@ -4,6 +4,7 @@ This diagram represents the automated flow of the voice-assistant platform.
 
 ```mermaid
 graph TD
+    %%{init: {'theme': 'dark', 'flowchart': {'rankSpacing': 50, 'nodeSpacing': 50}}}%%
     %% Define Styles to match your SVG colors
     classDef ai fill:#4b2e83,color:#fff,stroke:#333,stroke-width:2px;
     classDef data fill:#8b3a2b,color:#fff,stroke:#333,stroke-width:2px;
