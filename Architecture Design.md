@@ -14,9 +14,9 @@ graph LR
     %% INPUT SECTION (LEFT)
     subgraph Input ["Step 1: Input"]
         
-        UI --> STT[Sarika: STT]:::ai
-        STT --> Mayura[Mayura: Trans]:::ai
-Mayura --> LlamaParam[Llama: Parameters]:::ai
+        UI --> STT[Sarvam Sarika: Voice to text query]:::ai
+        STT --> Mayura[Sarvam Mayura: regional to english text ]:::ai
+Mayura --> LlamaParam[Llama: Parameters extraction]:::ai
     end
 
     %% PROCESSING & DATA (MIDDLE - SIDE BY SIDE)
