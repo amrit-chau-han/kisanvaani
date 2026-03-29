@@ -42,7 +42,7 @@ graph TD
     Gen --> TransNative[Translate to Native]:::util
     
     
-    TransNative --> TTS[TTS Audio]:::io
+    TransNative --> TTS[ Audio]:::io
     
     
     %% Assigning groups
