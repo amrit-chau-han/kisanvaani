@@ -42,7 +42,7 @@ graph TD
     Gen --> TransNative[Sarvam Mayura; Translate to Native]:::util
     
     
-    TransNative --> TTS[Sarvam Sarika: Audio]:::io
+    TransNative --> TTS[Text output]:::io
     
     
     %% Assigning groups
