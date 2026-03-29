@@ -41,7 +41,7 @@ graph TD
     Context --> Gen[Answer Generation]:::gen
     Gen --> TransNative[Translate to Native]:::util
     
-    TransNative --> Card[Answer Card]:::io
+    
     TransNative --> TTS[TTS Audio]:::io
     
     Card -.-> Log[Delta Query Log]:::io
