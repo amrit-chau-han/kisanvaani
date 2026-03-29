@@ -16,10 +16,11 @@ graph LR
         
         UI --> STT[Sarika: STT]:::ai
         STT --> Mayura[Mayura: Trans]:::ai
+Mayura --> LlamaParam[Llama: Parameters]:::ai
     end
 
     %% PROCESSING & DATA (MIDDLE - SIDE BY SIDE)
-    Mayura --> LlamaParam[Llama: Parameters]:::ai
+    
     
     subgraph Knowledge ["Step 2: Knowledge Retrieval"]
         direction TB
