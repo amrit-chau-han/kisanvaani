@@ -12,8 +12,6 @@ graph TD
     classDef gen fill:#7a4a00,color:#fff,stroke:#333,stroke-width:2px;
     classDef util fill:#444,color:#fff,stroke:#333,stroke-width:2px;
 
-    %% Configuration
-    Config[Cell 1: Config]:::util
 
     %% Main Flow
     Farmer((Farmer Voice Query)):::io --> UI[Cell 11: StreamLit UI]:::io
