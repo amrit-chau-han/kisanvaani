@@ -9,33 +9,47 @@
 
 This system is hosted on the **Databricks Data Intelligence Platform**, utilizing Delta Lake for data storage and Model Serving for inference.
 
+# KisanVaani v2 System Architecture
+
+This diagram represents the automated flow of the voice-assistant platform.
+
 ```mermaid
-%%{init: {'theme': 'dark', 'flowchart': {'rankSpacing': 70, 'nodeSpacing': 50}}}%%
 graph TD
-    %% Style Definitions
-    classDef ai fill:#4b2e83,color:#fff,stroke:#fff,stroke-width:1px;
-    classDef data fill:#8b3a2b,color:#fff,stroke:#fff,stroke-width:1px;
-    classDef io fill:#2e6400,color:#fff,stroke:#fff,stroke-width:1px;
-    classDef gen fill:#7a4a00,color:#fff,stroke:#fff,stroke-width:1px;
+    %%{init: {'theme': 'dark', 'flowchart': {'rankSpacing': 50, 'nodeSpacing': 50}}}%%
+    %% Define Styles to match your SVG colors
+    classDef ai fill:#4b2e83,color:#fff,stroke:#333,stroke-width:2px;
+    classDef data fill:#8b3a2b,color:#fff,stroke:#333,stroke-width:2px;
+    classDef io fill:#2e6400,color:#fff,stroke:#333,stroke-width:2px;
+    classDef gen fill:#7a4a00,color:#fff,stroke:#333,stroke-width:2px;
+    classDef util fill:#444,color:#fff,stroke:#333,stroke-width:2px;
 
-    %% Flow
-    Farmer((Farmer Voice Query)):::io --> UI[Cell 11: StreamLit UI]:::io
+
+    %% Main Flow
+    Farmer((Farmer Voice Query)):::io --> UI[StreamLit UI]:::io
+    UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
+    STT --> Param[Translate query from regional language to English]:::ai
+    Param --> TransEN[Extract Parameters]:::ai
+
+    %% Data Layer
+    AgMark[AgMarkNet API]:::data --> Fetch[Fetch Data]:::data
+    Weather[OpenWeatherMap]:::data --> Fetch
+    Tables[(Delta Lake Tables)]:::data --> Fetch
     
-    subgraph AI_Layer [Indic AI Stack]
-        STT[Sarvam Saarika: Voice to Text]:::ai
-        Trans[Sarvam Maurya: Translation]:::ai
-    end
-
-    subgraph Data_Layer [Databricks Lakehouse]
-        DB[(Delta Lake: Crop Advisory)]:::data
-        API[AgMarkNet & Weather APIs]:::data
-    end
-
-    UI --> STT
-    STT --> Trans
-    Trans --> Context[Cell 6: Context Assembly]:::data
-    DB --> Context
-    API --> Context
+    TransEN --> Context[Context Assembly]:::data
+    Fetch --> Context
     
-    Context --> LLM[Llama 3 70B: Answer Gen]:::gen
-    LLM --> UI
+    Context --> Gen[Answer Generation]:::gen
+    Gen --> TransNative[Translate to Native]:::util
+    
+    TransNative --> Card[Answer Card]:::io
+    TransNative --> TTS[TTS Audio]:::io
+    
+    Card -.-> Log[Delta Query Log]:::io
+    TTS -.-> Log
+    
+    %% Assigning groups
+    subgraph AI_Layer [AI / Indian Models]
+        STT
+        Param
+        TransEN
+    end
