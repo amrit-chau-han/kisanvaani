@@ -46,7 +46,7 @@ graph TD
     
     
     %% Assigning groups
-    subgraph AI_Layer [AI / Indian Models]
+    
         STT
         Param
         TransEN
