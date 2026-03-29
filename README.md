@@ -92,3 +92,26 @@ Once the application interface is open, follow these steps to interact with the 
 
 UI libraries
 pip install streamlit sarvam-sdk databricks-sdk pandas
+
+---
+
+## Technology Stack & AI Models
+
+Our solution is built on the **Databricks Data Intelligence Platform**, combining enterprise-grade data orchestration with state-of-the-art Generative AI models optimized for the Indian context.
+
+### Generative AI & Language Models
+We utilize a multi-model "Chain of Thought" architecture to bridge the gap between regional dialects and structured data:
+
+* **Sarvam Sarika (Speech-to-Text):** A high-performance STT model specifically tuned for Indian languages, enabling natural voice-based interaction for users.
+* **Sarvam Mayura (Translation):** Our core linguistic engine that translates regional queries into English for processing and maps English responses back to the user's native tongue while preserving colloquial context.
+* **Meta Llama 3.3 (via Databricks Mosaic AI):** * **Parameter Extraction:** Analyzes translated queries to identify key entities (crops, markets, dates).
+    * **Reasoning & Synthesis:** Acts as the central "brain" to generate accurate, context-aware answers by synthesizing real-time API data and historical records.
+
+### Databricks & Data Infrastructure
+The backbone of our project leverages **Databricks** for scalable, production-ready data handling:
+
+* **Mosaic AI Model Serving:** Hosts and serves the **Llama 3.3** model via serverless inference, providing low-latency responses and unified API management.
+* **Delta Lake:** All agricultural data and weather patterns are stored in **Delta Tables**, ensuring high-performance querying, data versioning, and ACID reliability for our Context Assembly layer.
+* **Streamlit Integration:** Connects the frontend UI directly to Databricks, enabling a lightweight and responsive user experience.
+
+---
