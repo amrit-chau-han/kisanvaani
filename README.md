@@ -53,3 +53,19 @@ graph TD
         Param
         TransEN
     end
+
+
+
+## 🚀 Getting Started
+
+Follow these steps to deploy and run KisanVaani v2 within your **Databricks Workspace**.
+
+### 1. Environment Setup
+Clone the repository into your Databricks Repo folder and install the required dependencies.
+
+```bash
+# Clone the repository
+git clone [https://github.com/your-username/kisanvaani-v2.git](https://github.com/your-username/kisanvaani-v2.git)
+
+# Install core AI and UI libraries
+pip install streamlit sarvam-sdk databricks-sdk pandas
