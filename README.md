@@ -1,7 +1,7 @@
 
 # KisanVaani v2: Voice-First Agritech Assistant
 
-**KisanVaani** is an AI-powered voice assistant that provides Indian farmers with real-time Mandi prices, weather updates, and crop advisories through simple native-language voice queries. By leveraging Databricks Lakehouse and state-of-the-art Indic models, it eliminates the digital literacy barrier in rural agriculture.
+**KisanVaani** is a multilingual AI assistant built on Databricks Lakehouse, providing farmers real-time market and weather insights. Using Sarvam Saarika (STT) and Sarvam Maurya (NLU/Translation), it enables voice-to-voice interaction in Hindi, English, Marathi, and Punjabi. By integrating AgMarkNet and OpenWeatherMap with Delta Lake caching, the system delivers precise, actionable crop advice for any district in under 10 seconds—bridging the digital literacy gap for rural India.
 
 ---
 
