@@ -44,7 +44,7 @@ graph TD
     
     TransNative --> TTS[TTS Audio]:::io
     
-    Card -.-> Log[Delta Query Log]:::io
+   
     TTS -.-> Log
     
     %% Assigning groups
