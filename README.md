@@ -39,10 +39,10 @@ graph TD
     Fetch --> Context
     
     Context --> Gen[Answer Generation]:::gen
-    Gen --> TransNative[Translate to Native]:::util
+    Gen --> TransNative[Sarvam Mayura; Translate to Native]:::util
     
     
-    TransNative --> TTS[ Audio]:::io
+    TransNative --> TTS[Sarvam Sarika: Audio]:::io
     
     
     %% Assigning groups
