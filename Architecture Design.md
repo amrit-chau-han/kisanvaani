@@ -35,8 +35,8 @@ Mayura --> LlamaParam[Llama: Parameters extraction]:::ai
     
     subgraph Output ["Step 3: Response"]
         Context --> Gen[Answer Gen]:::gen
-        Gen --> Native[Native Translation]:::ai
-        Native --> TTS[Audio Out]:::io
+        Gen --> Native[Sarvam Mayura: english to regional text]:::ai
+        Native --> TTS[Sarvam Sarika: Audio out]:::io
     end
 
  
