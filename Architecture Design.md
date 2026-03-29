@@ -35,12 +35,11 @@ Mayura --> LlamaParam[Llama: Parameters extraction]:::ai
     
     subgraph Output ["Step 3: Response"]
         Context --> Gen[Answer Gen]:::gen
-        Gen --> Native[Native Trans]:::ai
+        Gen --> Native[Native Translation]:::ai
         Native --> TTS[Audio Out]:::io
     end
 
-    %% Directing the flow for a more "Square" aspect ratio
-    TTS -.-> User
+ 
 
     %% Assigning groups
     subgraph AI_Layer [AI / Indian Models]
