@@ -13,7 +13,7 @@ graph LR
 
     %% INPUT SECTION (LEFT)
     subgraph Input ["Step 1: Input"]
-        User((Farmer)):::io --> UI[StreamLit]:::io
+        
         UI --> STT[Sarika: STT]:::ai
         STT --> Mayura[Mayura: Trans]:::ai
     end
