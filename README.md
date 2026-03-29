@@ -44,8 +44,6 @@ graph TD
     
     TransNative --> TTS[TTS Audio]:::io
     
-   
-    TTS -.-> Log
     
     %% Assigning groups
     subgraph AI_Layer [AI / Indian Models]
