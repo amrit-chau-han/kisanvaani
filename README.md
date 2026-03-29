@@ -27,8 +27,8 @@ graph TD
     %% Main Flow
     Farmer((Farmer Voice Query)):::io --> UI[StreamLit UI]:::io
     UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
-    STT --> Param[Translate query from regional language to English]:::ai
-    Param --> TransEN[Extract Parameters]:::ai
+    STT --> Param[Sarvam Mayura:Translate query from regional language to English]:::ai
+    Param --> TransEN[Llama 3.3 : Extract Parameters]:::ai
 
     %% Data Layer
     AgMark[AgMarkNet API]:::data --> Fetch[Fetch Data]:::data
