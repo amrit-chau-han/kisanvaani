@@ -1,4 +1,4 @@
-# KisanVaani v2 System Architecture
+# KisanVaani 
 
 This diagram represents the automated flow of the voice-assistant platform.
 
