@@ -54,18 +54,41 @@ graph TD
         TransEN
     end
 
+## 🚀 How to Run
 
+To launch the **KisanVaani v2** assistant within your Databricks workspace, follow these steps:
 
-## 🚀 Getting Started
+1. **Open the Notebook**: Navigate to the `app_launcher.ipynb` file in this repository.
+2. **Start the Server**: Run the main execution cell. This will initialize the backend connection to the **Sarvam** and **Llama** model endpoints.
+3. **Access the Interface**: 
+   - After the cell runs, a **Streamlit Proxy URL** will be generated in the output.
+   - Click the link to open the assistant in a new browser tab.
 
-Follow these steps to deploy and run KisanVaani v2 within your **Databricks Workspace**.
+---
 
-### 1. Environment Setup
-Clone the repository into your Databricks Repo folder and install the required dependencies.
+## 🖱️ Demo Steps (How to Use)
 
-```bash
-# Clone the repository
-git clone [https://github.com/your-username/kisanvaani-v2.git](https://github.com/your-username/kisanvaani-v2.git)
+Once the application interface is open, follow these steps to interact with the assistant:
 
-# Install core AI and UI libraries
+### 1. Voice Query
+* Click the **Microphone icon** (Start Recording).
+* Speak your question clearly in your native language (e.g., Hindi, Marathi, or English).
+* *Example:* "What is the current market price for cotton in the Akola Mandi?"
+
+### 2. Real-Time Processing
+* **STT:** Watch as the **Sarvam Saarika** model converts your voice into text on the screen.
+* **Context:** The system will automatically fetch live data from **AgMarkNet** and **OpenWeatherMap**.
+
+### 3. Response & Playback
+* **Answer Card:** A visual card will appear with the specific prices or weather advisory you requested.
+* **Audio Playback:** The **Sarvam TTS** engine will automatically play the response back to you in the same language you spoke.
+
+---
+
+## 🛠️ Tech Stack
+* **Platform:** Databricks Lakehouse
+* **Models:** Sarvam Saarika (STT), Sarvam Maurya (Translation), Llama 3 70B (LLM)
+* **UI:** Streamlit
+
+UI libraries
 pip install streamlit sarvam-sdk databricks-sdk pandas
