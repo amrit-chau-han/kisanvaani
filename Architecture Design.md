@@ -3,42 +3,43 @@
 This diagram represents the automated flow of the voice-assistant platform.
 
 ```mermaid
-graph TD
-    %% Global Styles
-    classDef ai fill:#4b2e83,color:#fff,stroke:#333,stroke-width:2px;
-    classDef data fill:#8b3a2b,color:#fff,stroke:#333,stroke-width:2px;
-    classDef io fill:#2e6400,color:#fff,stroke:#333,stroke-width:2px;
-    classDef gen fill:#7a4a00,color:#fff,stroke:#333,stroke-width:2px;
+graph LR
+    %%{init: {'theme': 'dark', 'flowchart': {'rankSpacing': 30, 'nodeSpacing': 30}}}%%
+    
+    classDef ai fill:#4b2e83,color:#fff,stroke:#333;
+    classDef data fill:#8b3a2b,color:#fff,stroke:#333;
+    classDef io fill:#2e6400,color:#fff,stroke:#333;
+    classDef gen fill:#7a4a00,color:#fff,stroke:#333;
 
-    %% --- INTERACTION LAYER ---
-    subgraph Input_Output [User Interface]
-        User((Farmer Voice)):::io --> UI[StreamLit UI]:::io
-        TTS[TTS Audio Output]:::io --> User
+    %% INPUT SECTION (LEFT)
+    subgraph Input ["Step 1: Input"]
+        User((Farmer)):::io --> UI[StreamLit]:::io
+        UI --> STT[Sarika: STT]:::ai
+        STT --> Mayura[Mayura: Trans]:::ai
     end
 
-    %% --- AI PROCESSING LAYER ---
-    subgraph AI_Engine [AI & Translation Layer]
-        UI --> STT[Sarvam Sarika: Voice to Text]:::ai
-        STT --> Trans[Sarvam Mayura: Regional to EN]:::ai
-        Trans --> LLM[Llama 3.3: Parameter Extraction]:::ai
+    %% PROCESSING & DATA (MIDDLE - SIDE BY SIDE)
+    Mayura --> LlamaParam[Llama: Parameters]:::ai
+    
+    subgraph Knowledge ["Step 2: Knowledge Retrieval"]
+        direction TB
+        AgMark[AgMarkNet API]:::data
+        Weather[Weather API]:::data
+        Delta[(Delta Lake)]:::data
     end
 
-    %% --- DATA LAYER ---
-    subgraph Data_Source [Knowledge Base]
-        API[AgMarkNet & Weather APIs]:::data
-        Delta[(Delta Lake Tables)]:::data
-        API & Delta --> Fetch[Context Assembly]:::data
+    %% SYNTHESIS (RIGHT)
+    LlamaParam --> Context[Context Assembly]:::gen
+    AgMark & Weather & Delta --> Context
+    
+    subgraph Output ["Step 3: Response"]
+        Context --> Gen[Answer Gen]:::gen
+        Gen --> Native[Native Trans]:::ai
+        Native --> TTS[Audio Out]:::io
     end
 
-    %% --- SYNTHESIS LAYER ---
-    subgraph Synthesis [Answer Generation]
-        LLM --> Fetch
-        Fetch --> Gen[Llama 3.3: Answer Gen]:::gen
-        Gen --> TransNative[Translate to Native]:::ai
-    end
-
-    %% Connecting the flow back to Output
-    TransNative --> TTS
+    %% Directing the flow for a more "Square" aspect ratio
+    TTS -.-> User
 
     %% Assigning groups
     subgraph AI_Layer [AI / Indian Models]
