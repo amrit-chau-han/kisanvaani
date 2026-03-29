@@ -14,7 +14,7 @@ graph TD
 
 
     %% Main Flow
-    Farmer((Farmer Voice Query)):::io --> UI[Cell 11: StreamLit UI]:::io
+    Farmer((Farmer Voice Query)):::io --> UI[StreamLit UI]:::io
     UI --> STT[Sarvam Sarika Model for Voice Query to Text query]:::ai
     STT --> Param[Translate query from regional language to English]:::ai
     Param --> TransEN[Extract Parameters]:::ai
@@ -24,7 +24,7 @@ graph TD
     Weather[OpenWeatherMap]:::data --> Fetch
     Tables[(Delta Lake Tables)]:::data --> Fetch
     
-    TransEN --> Context[Cell 6: Context Assembly]:::data
+    TransEN --> Context[Context Assembly]:::data
     Fetch --> Context
     
     Context --> Gen[Answer Generation]:::gen
